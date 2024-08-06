@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Sys {
+public class Branch {
     private ArrayList<Product> products ;
     private ArrayList<Order> orders;
     private ArrayList<Customer> customer;
@@ -9,7 +9,7 @@ public class Sys {
     private double profits;
     private double losses;
 
-    public Sys() {
+    public Branch() {
 
     }
     public void addOrder(Order o){
