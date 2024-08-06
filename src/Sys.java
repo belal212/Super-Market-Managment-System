@@ -28,7 +28,8 @@ public class Sys {
             products.add(product);
         } else {
             Product existingProduct = products.get(productIndex);
-            int newAmount = existingProduct.getAmountInStock() + product.getAmountInStock();
+            double newAmount = existingProduct.getAmountInStock() + product.getAmountInStock();
+
             existingProduct.setAmountInStock(newAmount);
         }
     }
@@ -43,7 +44,7 @@ public class Sys {
             products.add(product);
         } else {
             Product existingProduct = products.get(productIndex);
-            int newAmount = existingProduct.getAmountInStock() + product.getAmountInStock();
+            double newAmount = existingProduct.getAmountInStock() + product.getAmountInStock();
             existingProduct.setAmountInStock(newAmount);
         }
     }

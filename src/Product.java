@@ -1,7 +1,7 @@
 public class Product {
     private double OriginalSalePrice;
     private double salePrice;
-    private int amountInStock;
+    private double amountInStock;
     private int id;
     private String name;
 
@@ -37,11 +37,11 @@ public class Product {
         this.salePrice = salePrice;
     }
 
-    public int getAmountInStock() {
+    public double getAmountInStock() {
         return amountInStock;
     }
 
-    public void setAmountInStock(int amountInStock) {
+    public void setAmountInStock(double amountInStock) {
         this.amountInStock = amountInStock;
     }
 

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class ProductLine {
    private Product product;
    private int id;
-   private int noOfUnit;
+   private double noOfUnit;
 
     public ProductLine(Product product, int id, int noOfUnit) {
         this.product = product;
@@ -27,11 +27,11 @@ public class ProductLine {
         this.id = id;
     }
 
-    public int getNoOfUnit() {
+    public double getNoOfUnit() {
         return noOfUnit;
     }
 
-    public void setNoOfUnit(int noOfUnit) {
+    public void setNoOfUnit(double noOfUnit) {
         this.noOfUnit = noOfUnit;
     }
 
