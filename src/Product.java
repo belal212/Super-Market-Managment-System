@@ -13,7 +13,7 @@ public class Product {
         this.name = name;
     }
 
-    public Product(double wholeSalePrice, double salePrice, int amountInStock, int id,String name) {
+    public Product(double wholeSalePrice, double salePrice, double amountInStock, int id,String name) {
         this.OriginalSalePrice = wholeSalePrice;
         this.salePrice = salePrice;
         this.amountInStock = amountInStock;

@@ -6,6 +6,7 @@ public class Branch {
     private ArrayList<Order> orders;
     private ArrayList<Customer> customer;
     private ArrayList<Worker> workers;
+    private  double cost;
     private double profits;
     private double losses;
 
@@ -13,30 +14,27 @@ public class Branch {
 
     }
     public void addOrder(Order o){
-        if (this.orders != null){
-        this.orders.add(o);}
+        this.orders.add(o);
     }
 
     public void addProductName(Product product) {
-        if (products == null) {
-            System.out.println("Product list is not initialized.");
-        }
-
         int productIndex = binarySearchProductByName(products, product.getName());
 
+        Product existingProduct;
         if (productIndex == -1) {
-            products.add(product);
+            existingProduct = product;
+            products.add(existingProduct);
         } else {
-            Product existingProduct = products.get(productIndex);
+            existingProduct = products.get(productIndex);
             double newAmount = existingProduct.getAmountInStock() + product.getAmountInStock();
-
             existingProduct.setAmountInStock(newAmount);
         }
+
+        double costAdjustment = product.getOriginalSalePrice() * product.getAmountInStock();
+        this.cost -= costAdjustment;
     }
+
     public void addProductID(Product product) {
-        if (products == null) {
-            System.out.println("Product list is not initialized.");
-        }
 
         int productIndex = binarySearchProductByID(products, product.getId());
 
@@ -47,6 +45,9 @@ public class Branch {
             double newAmount = existingProduct.getAmountInStock() + product.getAmountInStock();
             existingProduct.setAmountInStock(newAmount);
         }
+
+        double c = product.getOriginalSalePrice()*product.getAmountInStock();
+        this.cost-=c;
     }
 
     public  int binarySearchProductByName(ArrayList<Product> products, String key) {
@@ -218,6 +219,24 @@ public class Branch {
         }
     }
 
+
+    public void retrieved(int id,int line){
+        int orderIndex = binarySearchOrderByID(this.orders,id);
+        if (orderIndex == -1){
+            System.out.println("there no order with this id");
+        }
+        else {
+            ProductLine p =this.orders.get(orderIndex).getLine().get(line);
+            Product product= new Product(p.getProduct().getOriginalSalePrice(),
+                    p.getProduct().getSalePrice(),
+                    p.getNoOfUnit(),p.getProduct().getId(),
+                    p.getProduct().getName());
+
+            addProductName(product);
+            this.cost-=p.cost();
+
+        }
+    }
 
 
     public ArrayList<Product> getProducts() {

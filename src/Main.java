@@ -18,7 +18,7 @@ public class Main {
         o.submit();
         System.out.println(p2.getAmountInStock());
         System.out.println(o.profit());
-        Sys s = new Sys();
+        Branch s = new Branch();
         s.addOrder(o);
         s.addOrder(o1);
         System.out.println(s.allProfit());

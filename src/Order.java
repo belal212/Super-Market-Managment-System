@@ -65,8 +65,6 @@ public class Order {
     public void addProductLine(ProductLine productLine) {
         this.line.add(productLine);
     }
-
-
     public double profit(){
         return cost()-original_prices();
     }
